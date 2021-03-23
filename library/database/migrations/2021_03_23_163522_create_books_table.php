@@ -19,8 +19,8 @@ class CreateBooksTable extends Migration
             $table->string('isbn');
             $table->integer('pages');
             $table->string('about');
-            $table->integer('auther_id');
-            $table->foreign('author_id')->references('id')->on('authors');
+            $table->integer('author_id');
+            // $table->foreign('author_id')->references('id')->on('authors');
             $table->timestamps();
         });
     }
