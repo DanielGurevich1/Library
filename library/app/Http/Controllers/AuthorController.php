@@ -91,7 +91,7 @@ class AuthorController extends Controller
     public function destroy(Author $author)
     {
 
-        if ($author->authorBooks->count()) {
+        if ($author->authorBooks->count()) { // objektas kuris gali save suskaiciuoti
             // return 'Trinti negalima, nes turi knygų';
             return redirect()->route('author.index')->with('info_message', 'Trinti negalima, nes turi knygų.');
         }

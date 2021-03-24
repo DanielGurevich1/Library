@@ -5,14 +5,19 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Author List</div>
+                <div class="card-header">
+                    <div style="margin:20px; color:blue;" class="form-group">
+                        <h2>Edit Author's List</h2>
+                    </div>
+                </div>
 
                 <div class="card-body">
                     @foreach ($authors as $author)
-                    <a href="{{route('author.edit',[$author])}}">{{$author->name}} {{$author->surname}}</a>
+
                     <form method="POST" action="{{route('author.destroy', [$author])}}">
+                        {{$author->name}} {{$author->surname}} <a href="{{route('author.edit',[$author])}}">[click to edit it]</a>
                         @csrf
-                        <button type="submit">DELETE</button>
+                        <a href style="display: inline-block;" type="submit">[delete]</a>
                     </form>
                     <br>
                     @endforeach
