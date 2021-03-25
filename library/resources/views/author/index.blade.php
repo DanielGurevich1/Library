@@ -7,7 +7,7 @@
             <div class="card">
                 <div class="card-header">
                     <div style="margin:20px; color:blue;" class="form-group">
-                        <h2>Edit Author's List</h2>
+                        <h2> Author's List</h2>
                     </div>
                 </div>
 
@@ -21,10 +21,14 @@
                                 {{$author->name}} {{$author->surname}}
                             </div>
                             <div class="list-line__buttons">
-                                <form method="POST" action="{{route('author.destroy', [$author])}}">
-                                    <button style="{{route('author.edit',[$author])}}" class="btn btn-outline-primary btn-sm">click to edit it</button>
+                                <form method="get" action="{{route('author.edit', [$author])}}">
+                                    <button style="{{route('author.edit',[$author])}}" class="btn btn-outline-primary btn-sm">Edit</button>
                                     @csrf
-                                    <button style="display: inline-block;" type="submit" class="btn btn-outline-danger btn-sm">delete</button>
+                                </form>
+                                <form method="post" action="{{route('author.destroy', [$author])}}">
+
+                                    <button type="submit" class="btn btn-outline-danger btn-sm">Delete</button>
+                                    @csrf
                                 </form>
                             </div>
                         </li>

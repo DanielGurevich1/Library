@@ -47,7 +47,7 @@ class BookController extends Controller
         $book->about = $request->book_about;
         $book->author_id = $request->author_id;
         $book->save();
-        return redirect()->route('author.index')->with('success_message', 'Sekmingai įrašytas.');
+        return redirect()->route('book.index')->with('success_message', 'Sekmingai įrašytas.');
     }
 
     /**
@@ -101,6 +101,6 @@ class BookController extends Controller
     {
         $book->delete();
 
-        return redirect()->route('author.index')->with('success_message', 'Sekmingai ištrintas.');
+        return redirect()->route('book.index')->with('success_message', 'Sekmingai ištrintas.');
     }
 }

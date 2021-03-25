@@ -10,17 +10,24 @@
                 </div>
 
                 <div class="card-body">
-                    @foreach ($books as $book)
-                    {{$book->title}} | {{$book->bookAuthor->name}} {{$book->bookAuthor->surname}} | <a href="{{route('book.edit',[$book])}}">[edit]</a>
-                    <form method="POST" action="{{route('book.destroy', [$book])}}">
-                        @csrf
-                        <button type="submit" class="btn btn-outline-danger">[delete]</button>
-                    </form>
-                    <br>
-                    @endforeach
+                    <ul class="list-group">
+                        @foreach ($books as $book)
+                        <li class="list-group-item list-line">
+                            {{$book->title}} <br> {{$book->bookAuthor->name}} {{$book->bookAuthor->surname}}
+                            <form method="get" action="{{route('book.edit', [$book])}}">
+                                <button style="{{route('book.edit',[$book])}}" class="btn btn-outline-primary btn-sm">edit</button>
+                                @csrf
+                            </form>
+                            <form method="post" action="{{route('book.destroy', [$book])}}">
 
-                    @extends('layouts.app')
-
+                                <button type="submit" style="display: inline-block;" class="btn btn-outline-danger btn-sm">delete</button>
+                                @csrf
+                            </form>
+                            <br>
+                        </li>
+                        @endforeach
+                        @extends('layouts.app')
+                    </ul>
                 </div>
             </div>
         </div>

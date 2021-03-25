@@ -26,7 +26,7 @@
 
                         </div>
                         @csrf
-                        <button type="submit">EDIT</button>
+                        <button type="submit" class="btn btn-outline-danger btn-sm">EDIT</button>
                     </form>
                 </div>
             </div>

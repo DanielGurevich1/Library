@@ -17,17 +17,16 @@
                         <div class="form-group">
                             <label> Author's Name </label>
                             <input type="text" name="author_name" class="form-control">
-                            {{-- <small class="form-text text-muted">text</small> --}}
+
                         </div>
                         <div class="form-group">
                             <label> Author's Surname </label>
                             <input type="text" name="author_surname" class="form-control">
-                            {{-- <small class="form-text text-muted">text</small> --}}
+
                         </div>
-                        {{-- Name: <input type="text" name="author_name"> --}}
-                        {{-- Surname: <input type="text" name="author_surname"> --}}
+
                         @csrf
-                        <button type="submit" class="btn btn-outline-success">>ADD</button>
+                        <button type="submit" class="btn btn-outline-success">ADD</button>
                     </form>
                 </div>
             </div>

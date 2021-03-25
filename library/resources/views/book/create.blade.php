@@ -1,5 +1,5 @@
 @extends('layouts.app')
-
+@use Validator;
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
@@ -14,7 +14,7 @@
                 <div class="card-body">
                     <form method="POST" action="{{route('book.store')}}">
                         <div class="form-group">
-                            <label>Edit</label>
+                            <label>Book title</label>
                             <input type="text" name="book_title" class="form-control">
 
                         </div>
@@ -30,8 +30,8 @@
                         </div>
                         <div class="form-group">
                             <label>About the book</label>
-                            <textarea id="summernote" name="boo_about"></textarea>
-                            <input type="text" name="book_about" class="form-control">
+                            <textarea type="text" id="summernote" name="book_about"></textarea>
+                            {{-- <input type="text" name="book_about" class="form-control"> --}}
 
                         </div>
 
@@ -41,7 +41,7 @@
                             @endforeach
                         </select>
                         @csrf
-                        <button type="submit">ADD</button>
+                        <button type="submit" class="btn btn-outline-primary btn-sm">ADD</button>
                     </form>
                 </div>
             </div>

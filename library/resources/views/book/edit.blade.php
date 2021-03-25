@@ -26,13 +26,13 @@
                         </div>
                         <div class="form-group">
                             <label>Pages:</label>
-                            <textarea name="boo_about"></textarea>
                             <input type="text" name="book_pages" class="form-control" value="{{$book->pages}}">
 
                         </div>
                         <div class="form-group">
                             <label>About the book</label>
-                            <input type="text" name="book_about" class="form-control" value="{{$book->about}}">
+                            <textarea id="summernote" name="book_about">{{$book->about}}</textarea>
+                            {{-- <input type="text" name="book_about" class="form-control" value="{{$book->about}}"> --}}
 
                         </div>
 
@@ -45,7 +45,7 @@
                             @endforeach
                         </select>
                         @csrf
-                        <button type="submit">EDIT</button>
+                        <button type="submit" class="btn btn-outline-primary btn-sm">EDIT</button>
                     </form>
                 </div>
             </div>
