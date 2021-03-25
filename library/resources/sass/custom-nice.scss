@@ -1,0 +1,10 @@
+.list-line{
+    display: flex;
+    justify-content: space-between;
+    &__buttons{
+display: flex;
+&>*{
+    margin:10px;
+}
+    }
+}

@@ -14,7 +14,7 @@
                     {{$book->title}} | {{$book->bookAuthor->name}} {{$book->bookAuthor->surname}} | <a href="{{route('book.edit',[$book])}}">[edit]</a>
                     <form method="POST" action="{{route('book.destroy', [$book])}}">
                         @csrf
-                        <button type="submit">[delete]</button>
+                        <button type="submit" class="btn btn-outline-danger">[delete]</button>
                     </form>
                     <br>
                     @endforeach

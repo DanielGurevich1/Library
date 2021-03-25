@@ -27,7 +27,7 @@
                         {{-- Name: <input type="text" name="author_name"> --}}
                         {{-- Surname: <input type="text" name="author_surname"> --}}
                         @csrf
-                        <button type="submit">ADD</button>
+                        <button type="submit" class="btn btn-outline-success">>ADD</button>
                     </form>
                 </div>
             </div>

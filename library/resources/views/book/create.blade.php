@@ -30,6 +30,7 @@
                         </div>
                         <div class="form-group">
                             <label>About the book</label>
+                            <textarea id="summernote" name="boo_about"></textarea>
                             <input type="text" name="book_about" class="form-control">
 
                         </div>
@@ -47,11 +48,11 @@
         </div>
     </div>
 </div>
-{{-- <script>
+<script>
     $(document).ready(function() {
         $('#summernote').summernote();
     });
 
-</script> --}}
+</script>
 
 @endsection

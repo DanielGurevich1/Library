@@ -12,14 +12,24 @@
                 </div>
 
                 <div class="card-body">
-                    @foreach ($authors as $author)
+                    <ul class="list-group">
+                        @foreach ($authors as $author)
 
-                    <form method="POST" action="{{route('author.destroy', [$author])}}">
-                        {{$author->name}} {{$author->surname}} <a href="{{route('author.edit',[$author])}}">[click to edit it]</a>
-                        @csrf
-                        <a href style="display: inline-block;" type="submit">[delete]</a>
-                    </form>
-                    <br>
+
+                        <li class="list-group-item list-line">
+                            <div>
+                                {{$author->name}} {{$author->surname}}
+                            </div>
+                            <div class="list-line__buttons">
+                                <form method="POST" action="{{route('author.destroy', [$author])}}">
+                                    <button style="{{route('author.edit',[$author])}}" class="btn btn-outline-primary btn-sm">click to edit it</button>
+                                    @csrf
+                                    <button style="display: inline-block;" type="submit" class="btn btn-outline-danger btn-sm">delete</button>
+                                </form>
+                            </div>
+                        </li>
+
+                    </ul>
                     @endforeach
 
                 </div>

@@ -93,7 +93,7 @@ class AuthorController extends Controller
 
         if ($author->authorBooks->count()) { // objektas kuris gali save suskaiciuoti
             // return 'Trinti negalima, nes turi knygų';
-            return redirect()->route('author.index')->with('info_message', 'Trinti negalima, nes turi knygų.');
+            return redirect()->back()->with('info_message', 'Trinti negalima, nes turi knygų.');
         }
         $author->delete();
         // return redirect()->route('author.index');
