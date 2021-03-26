@@ -10,18 +10,19 @@
                         <h2>Add an Author</h2>
                         {{-- <input type="text" class="form-control"> --}}
                         {{-- <small class="form-text text-muted">text</small> --}}
+
                     </div>
                 </div>
                 <div class="card-body">
-                    <form method="POST" action="{{route('author.store')}}">
+                    <form method="POST" action="{{route('author.store')}}"> // linkas i varda
                         <div class="form-group">
                             <label> Author's Name </label>
-                            <input type="text" name="author_name" class="form-control">
+                            <input type="text" name="author_name" class="form-control" value="{{old('author_name')}}">
 
                         </div>
                         <div class="form-group">
                             <label> Author's Surname </label>
-                            <input type="text" name="author_surname" class="form-control">
+                            <input type="text" name="author_surname" class="form-control" value="{{old('author_name')}}">
 
                         </div>
 

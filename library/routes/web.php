@@ -24,10 +24,10 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::group(['prefix' => 'authors'], function () {
     Route::get('', [AuthorController::class, 'index'])->name('author.index');
-    Route::get('create', [AuthorController::class, 'create'])->name('author.create');
-    Route::post('store', [AuthorController::class, 'store'])->name('author.store');
-    Route::get('edit/{author}', [AuthorController::class, 'edit'])->name('author.edit');
-    Route::post('update/{author}', [AuthorController::class, 'update'])->name('author.update');
+    Route::get('create', [AuthorController::class, 'create'])->name('author.create'); // rodo tuscia nauja forma
+    Route::post('store', [AuthorController::class, 'store'])->name('author.store'); // uzsaugo nauja objekta
+    Route::get('edit/{author}', [AuthorController::class, 'edit'])->name('author.edit'); // rodo uzpildyta forma
+    Route::post('update/{author}', [AuthorController::class, 'update'])->name('author.update'); // uzsaugo redaguota objekta
     Route::post('delete/{author}', [AuthorController::class, 'destroy'])->name('author.destroy');
     Route::get('show/{author}', [AuthorController::class, 'show'])->name('author.show');
 });

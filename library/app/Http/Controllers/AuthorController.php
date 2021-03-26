@@ -13,9 +13,21 @@ class AuthorController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $authors = Author::all();
+        // $authors = $request->sort ? Author::orderBy('name', 'desc')->get() : Author::all();
+        if ('name' == $request->sort) {
+            $authors = Author::orderBy('name')->get();
+        } elseif ('surname' == $request->sort) {
+            $authors = Author::orderBy('surname')->get();
+        } elseif ('created_at' == $request->sort) {
+            $authors = Author::orderBy('created_at', 'desc')->get();
+        } else {
+            $authors = Author::all();
+        }
+        // $authors = Author::all();
+        // $authors = Author::orderBy('name', 'desc')->get();
+        // dd($authors);
         return view('author.index', ['authors' => $authors]);
     }
 
@@ -104,7 +116,7 @@ class AuthorController extends Controller
             ]
         );
         if ($validator->fails()) {
-            $request->flash();
+            $request->flash(); // momentine atmintis
             return redirect()->back()->withErrors($validator);
         }
         $author->name = $request->author_name;

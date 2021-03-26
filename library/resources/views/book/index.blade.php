@@ -12,10 +12,11 @@
                 <div class="card-body">
                     <ul class="list-group">
                         @foreach ($books as $book)
-                        <li class="list-group-item list-line">
+                        <li class="card list-line" style="width: 18rem; margin:10px">
+                            <img src="..." class="card-img-top" alt="...">
                             {{$book->title}} <br> {{$book->bookAuthor->name}} {{$book->bookAuthor->surname}}
                             <form method="get" action="{{route('book.edit', [$book])}}">
-                                <button style="{{route('book.edit',[$book])}}" class="btn btn-outline-primary btn-sm">edit</button>
+                                <button style="{{route('book.edit',[$book])}}" class="btn btn-outline-primary btn-sm" style="display: inline-block;">edit</button>
                                 @csrf
                             </form>
                             <form method="post" action="{{route('book.destroy', [$book])}}">

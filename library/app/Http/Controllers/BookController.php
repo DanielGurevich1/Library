@@ -14,10 +14,14 @@ class BookController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index() //atvaizdavimas
     {
+        //paimam dezes
         $books = Book::all();
-        return view('book.index', ['books' => $books]);
+        // objektas - kolekcija 
+        $books = $books->sortBy(' title');
+
+        return view('book.index', ['books' => $books]); //perduodam i db ['books' => $books]
     }
 
     /**
@@ -29,7 +33,7 @@ class BookController extends Controller
     {
         // return view('book.create');
         $authors = Author::all();
-        return view('book.create', ['authors' => $authors]);
+        return view('book.create', ['authors' => $authors]); // view + kelias i faila create
     }
 
     /**
@@ -40,19 +44,20 @@ class BookController extends Controller
      */
     public function store(Request $request)
     {
-        $book = new Book;
-        $book->title = $request->book_title;
+        $book = new Book; //sukuriam nauja book
+        $book->title = $request->book_title; // kreipiames i savybe =  requestas pasiima is create input
+        // db dalis             formos dalis
         $book->isbn = $request->book_isbn;
         $book->pages = $request->book_pages;
         $book->about = $request->book_about;
         $book->author_id = $request->author_id;
-        $book->save();
+        $book->save(); // irasome i db
         return redirect()->route('book.index')->with('success_message', 'Sekmingai įrašytas.');
     }
 
     /**
      * Display the specified resource.
-     *
+     * 
      * @param  \App\Models\Book  $book
      * @return \Illuminate\Http\Response
      */
