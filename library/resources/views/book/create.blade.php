@@ -49,10 +49,16 @@
     </div>
 </div>
 <script>
-    $(document).ready(function() {
+    window.addEventListener('DOMContentLoaded', (event) => {
         $('#summernote').summernote();
     });
 
 </script>
+{{-- <script>
+    $(document).ready(function() {
+        $('#summernote').summernote();
+    });
+
+</script> --}}
 
 @endsection

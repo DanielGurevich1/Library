@@ -33,4 +33,10 @@
         </div>
     </div>
 </div>
+<script>
+    window.addEventListener('DOMContentLoaded', (event) => {
+        $('#summernote').summernote();
+    });
+
+</script>
 @endsection

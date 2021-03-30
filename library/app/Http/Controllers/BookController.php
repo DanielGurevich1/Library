@@ -14,15 +14,53 @@ class BookController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index() //atvaizdavimas
+    public function index(Request $request) //atvaizdavimas
     {
         //paimam dezes
-        $books = Book::all();
+        $authors = Author::all();
+        // dd($request->author_id);
+        if ($request->author_id) {
+            Book::where('author_id', $request->author_id)->get();
+            $filterBy = $request->author_id;
+        } else {
+            $books = Book::all();
+        }
         // objektas - kolekcija 
-        $books = $books->sortBy(' title');
+        // $books = $books->sortBy(' title');
 
-        return view('book.index', ['books' => $books]); //perduodam i db ['books' => $books]
+        return view('book.index', ['books' => $books, 'authors' => $authors]); //perduodam i db ['books' => $books]
     }
+    // rusiavymas
+    // public function index(Request $request)
+    // {
+    //     $authors = Author::all();
+
+    //     //FILTRAVIMAS
+    //     if ($request->author_id) {
+    //         $books = Book::where('author_id', $request->author_id)->get();
+    //         $filterBy = $request->author_id;
+    //     }
+    //     else {
+    //         $books = Book::all();
+    //     }
+
+    //     //RUSIAVIMAS
+    //     if ($request->sort && 'asc' == $request->sort) {
+    //         $books = $books->sortBy('title');
+    //         $sortBy = 'asc';
+    //     }
+    //     elseif ($request->sort && 'desc' == $request->sort) {
+    //         $books = $books->sortByDesc('title');
+    //         $sortBy = 'desc';
+    //     }
+
+    //     return view('book.index', [
+    //         'books' => $books,
+    //         'authors' => $authors,
+    //         'filterBy' => $filterBy ?? 0,
+    //         'sortBy' => $sortBy ?? ''
+    //         ]);
+    // }
 
     /**
      * Show the form for creating a new resource.
@@ -63,7 +101,7 @@ class BookController extends Controller
      */
     public function show(Book $book)
     {
-        //
+        return view('book.show', ['book' => $book]);
     }
 
     /**
